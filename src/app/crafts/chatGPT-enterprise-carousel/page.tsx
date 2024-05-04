@@ -79,10 +79,10 @@ export default function Page() {
       <div className="grid max-w-screen-lg w-full grid-cols-5 gap-6 mx-auto">
         {carouselList.map((carousels, carouselsIndex) => {
           return (
-            <div className="relative aspect-square w-full">
+            <div className="relative aspect-square w-full" key={carouselsIndex}>
               <AnimatePresence>
                 <motion.div
-                  key={carousels[order] + order}
+                  key={carousels[order] + carouselsIndex + order}
                   initial={{ opacity: 0, translateY: 32, scale: 1.1, filter: "blur(6px)" }}
                   animate={{
                     opacity: 1,
