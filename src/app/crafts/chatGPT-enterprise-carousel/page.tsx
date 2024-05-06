@@ -54,7 +54,7 @@ export default function Page() {
     isPlaying ? 3000 : null
   );
 
-  function pageVisibilityHandler() {
+  function onVisibilityChange() {
     if (document.visibilityState === "hidden") {
       setPlaying(false);
     } else {
@@ -65,18 +65,18 @@ export default function Page() {
   useEffect(() => {
     // @note: mounted
     setPlaying(true);
-    document.addEventListener("visibilitychange", pageVisibilityHandler);
+    document.addEventListener("visibilitychange", onVisibilityChange);
 
     // @note: unmounted
     return () => {
       setPlaying(false);
-      document.removeEventListener("visibilitychange", pageVisibilityHandler);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, []);
 
   return (
-    <div className="w-screen h-screen bg-white text-black flex items-center justify-center">
-      <div className="grid max-w-screen-lg w-full grid-cols-5 gap-6 mx-auto">
+    <div className="w-screen h-screen flex items-center justify-center">
+      <div className="grid max-w-screen-lg w-full px-12 md:px-6 grid-cols-2 md:grid-cols-5 gap-6 mx-auto">
         {carouselList.map((carousels, carouselsIndex) => {
           return (
             <div className="relative aspect-square w-full" key={carouselsIndex}>
