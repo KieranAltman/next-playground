@@ -19,6 +19,13 @@ export default function Page() {
         >
           Shared Tab Indicator
         </Link>
+
+        <Link
+          href="/crafts/framer-404-background"
+          className="text-sm underline transition hover:opacity-50"
+        >
+          Framer 404 Background
+        </Link>
       </div>
     </div>
   );
